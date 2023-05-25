@@ -40,7 +40,6 @@ def eyecatch_in():
     # creating a new media list object
     media_list = player.media_list_new()
 
-
     # creating a new media
     media = player.media_new(mypath[0] + str(onlyfiles1[0]))
 
@@ -62,16 +61,18 @@ def eyecatch_in():
     # start playing video
     media_player.play_item_at_index(0)
     time.sleep(0.5)
-    time.sleep(media_list[0].get_duration() / 1000 + 0.2)
+    time.sleep(media_list[0].get_duration() / 1000)
 
     # playing next media in list
     media_player.next()
 
     # wait so the video can be played for 5 seconds
     # irrespective for length of video
-    time.sleep(media_list[1].get_duration() / 1000 + 0.2)
-    # preloaded
+    time.sleep(media_list[1].get_duration() / 1000)
 
+    media_player.stop()
+
+    # preloaded
 
 
 def print_hi(name):
