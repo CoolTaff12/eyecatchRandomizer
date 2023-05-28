@@ -1,9 +1,27 @@
-# This is a sample Python script.
+#!/usr/bin/env python
+# title				: eyecatch_randomizer.py
+# description		: Eyecatch Randomizer is an OBS script that will play two random clips picked
+# 					: from each two seperate folders. These will simulate as eyecatches for
+#                   : starting or ending a break during streams
+# author			: Leo Taffazoli (CoolTaff)
+# date				: 2023 05 27
+# version			: 0.1
+# usage				: python pyscript.py
+# dependencies		: - Python 3.8 (https://www.python.org/)
+# 					: 	- requests (http://www.python-requests.org/)
+# 					: 	- numpy (http://www.python-requests.org/)
+# notes				: Follow this step for this script to work:
+# 					: Python:
+# 					:	1. Install python (64 bits, this is important)
+# 					:	2. Install requests
+# 					:		- Open a command prompt with administrator privileges
+# 					:		- Type in "pip install requests"
+# 					:
+# 					:
+# python_version	: 3.8+
+# ==============================================================================
 
-# Press Skift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-# ----------------
+# import obspython as obs
 from os import listdir
 from os.path import isfile, join
 import random
@@ -16,7 +34,6 @@ import vlc
 
 mypath = ['Eyecatch_in/', 'Eyecatch_out/']
 
-# Runs in Python 3.8.
 # Package               version
 # setuptools            65.5.2
 # pip                   22.3.1
@@ -63,14 +80,17 @@ def eyecatch_in():
     time.sleep(0.5)
     time.sleep(media_list[0].get_duration() / 1000)
 
+    media_player.pause()
+
+    time.sleep(3)
+
     # playing next media in list
-    media_player.next()
+    media_player.play()
 
     # wait so the video can be played for 5 seconds
     # irrespective for length of video
     time.sleep(media_list[1].get_duration() / 1000)
 
-    media_player.stop()
 
     # preloaded
 
