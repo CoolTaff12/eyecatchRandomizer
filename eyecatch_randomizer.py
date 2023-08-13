@@ -7,7 +7,7 @@
 # date				: 2023 05 27
 # version			: 0.1
 # usage				: python pyscript.py
-# dependencies		: - Python 3.8 (https://www.python.org/)
+# dependencies		: - Python 3.11 (https://www.python.org/)
 # 					: 	- requests (http://www.python-requests.org/)
 # 					: 	- numpy (http://www.python-requests.org/)
 # notes				: Follow this step for this script to work:
@@ -35,11 +35,11 @@ import vlc
 mypath = ['Eyecatch_in/', 'Eyecatch_out/']
 
 # Package               version
-# setuptools            65.5.2
-# pip                   22.3.1
-# numpy                 1.24.3
-# wheel                 0.38.4
-# python-vlc (vlc)      30.0.18122
+# setuptools            65.5.2 -> 68.0.0
+# pip                   22.3.1 -> 23.1.2
+# numpy                 1.24.3 -> 1.25.2
+# wheel                 0.38.4 -> 0.41.1
+# python-vlc (vlc)      30.0.18122 -> (Same)
 
 
 def eyecatch_in():
@@ -79,10 +79,11 @@ def eyecatch_in():
     media_player.play_item_at_index(0)
     time.sleep(0.5)
     time.sleep(media_list[0].get_duration() / 1000)
+    print(media_list[0].get_duration())
 
     media_player.pause()
 
-    time.sleep(3)
+    time.sleep(1)
 
     # playing next media in list
     media_player.play()
@@ -90,7 +91,9 @@ def eyecatch_in():
     # wait so the video can be played for 5 seconds
     # irrespective for length of video
     time.sleep(media_list[1].get_duration() / 1000)
+    print(media_list[1].get_duration())
 
+    time.sleep(0.5)
 
     # preloaded
 
